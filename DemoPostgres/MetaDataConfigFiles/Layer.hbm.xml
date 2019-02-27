@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping assembly="" namespace="" xmlns="urn:nhibernate-mapping-2.2">
+  <class entity-name="Layer" table="__Layer" lazy="true" >
+    <cache usage="read-write"/>
+    <id name="Id" column="Id" type="Int32">
+      <generator class="identity" />
+    </id>
+    <property name="ServiceId" type="Int32">
+      <column name="ServiceId" sql-type="int" not-null="true" />
+    </property>
+    <!--file name for this layer config-->
+    <property name="Name" type="String">
+      <column name="Name" sql-type="nvarchar(max)" not-null="false" />
+    </property>
+       <!--string clob will fix bug "The length of the string value exceeds the length configured in the mapping/parameter."-->
+     <property name="XmlMapping" type="StringClob">
+      <column name="XmlMapping" sql-type="nvarchar(max)" not-null="false" />
+    </property>
+    <property name="OdkForm" type="StringClob">
+      <column name="OdkForm" sql-type="nvarchar(max)" not-null="false" />
+    </property>    
+    <property name="TableName" type="String">
+      <column name="TableName" sql-type="nvarchar(max)" not-null="false" />
+    </property>
+      <property name="FilterExpression" type="String">
+      <column name="FilterExpression" sql-type="nvarchar(max)" not-null="false" />
+    </property>
+    <property name="State" type="Int32">
+      <column name="State" sql-type="int" not-null="true" />
+    </property>
+    <property name="SpatialReference" type="Int32">
+      <column name="SpatialReference" sql-type="int" />
+    </property>
+    <property name="Type" type="Int32">
+      <column name="Type" sql-type="int" not-null="false" />
+    </property>
+    <property name="Drawing" type="StringClob">
+      <column name="Drawing" sql-type="nvarchar(max)" not-null="false" />
+    </property>
+    <property name="VisibleRange" type="Int32">
+      <column name="VisibleRange" sql-type="int" not-null="true" />
+    </property>
+    <property name="IsEditable" type="bool">
+      <column name="IsEditable" sql-type="bit" not-null="true" />
+    </property>
+    <property name="IsVersioned" type="bool">
+      <column name="IsVersioned" sql-type="bit" not-null="true" />
+    </property>
+     <property name="SignalRIsAddEventEnabled" type="bool">
+      <column name="SignalRIsAddEventEnabled" sql-type="bit" not-null="false" />
+    </property>
+     <property name="SignalRIsUpdateEventEnabled" type="bool">
+      <column name="SignalRIsUpdateEventEnabled" sql-type="bit" not-null="false" />
+    </property>
+     <property name="SignalRIsDeleteEventEnabled" type="bool">
+      <column name="SignalRIsDeleteEventEnabled" sql-type="bit" not-null="false" />
+    </property>
+    
+    <property name="PubNubIsAddEventEnabled" type="bool">
+      <column name="PubNubIsAddEventEnabled" sql-type="bit" not-null="false" />
+    </property>
+     <property name="PubNubIsUpdateEventEnabled" type="bool">
+      <column name="PubNubIsUpdateEventEnabled" sql-type="bit" not-null="false" />
+    </property>
+     <property name="PubNubIsDeleteEventEnabled" type="bool">
+      <column name="PubNubIsDeleteEventEnabled" sql-type="bit" not-null="false" />
+    </property>
+    
+     <property name="AzureIsAddEventEnabled" type="bool">
+      <column name="AzureIsAddEventEnabled" sql-type="bit" not-null="false" />
+    </property>
+     <property name="AzureIsUpdateEventEnabled" type="bool">
+      <column name="AzuresUpdateEventEnabled" sql-type="bit" not-null="false" />
+    </property>
+     <property name="AzureIsDeleteEventEnabled" type="bool">
+      <column name="AzureIsDeleteEventEnabled" sql-type="bit" not-null="false" />
+    </property>
+    
+      
+    <property name="IsODataEnabled" type="bool">
+      <column name="IsODataEnabled" sql-type="bit"/>
+    </property>
+    <property name="IsOdkEnabled" type="bool">
+      <column name="IsOdkEnabled" sql-type="bit"/>
+    </property>
+    <property name="HasAttachments" type="bool">
+      <column name="HasAttachments" sql-type="bit" not-null="true" />
+    </property>
+    <property name="IsSupportTime" type="bool">
+      <column name="IsSupportTime" sql-type="bit" not-null="true" />
+    </property>    
+    <property name="TimeFieldId" type="Int32">
+      <column name="TimeFieldId" sql-type="int" not-null="false" />
+    </property>
+    <property name="MinDate" type="Single">
+      <column name="MinDate" sql-type="Real" not-null="false" />
+    </property>
+    <property name="MaxDate" type="Single">
+      <column name="MaxDate" sql-type="Real" not-null="false" />
+    </property>
+    
+    <property name="Extent" type="String">
+      <column name="Extent" sql-type="nvarchar(max)" not-null="true" />
+    </property>
+
+        
+    <property name="PopupType" type="Int32">
+      <column name="PopupType" sql-type="int" not-null="false" />
+    </property>
+    <property name="PopupContent" type="String">
+      <column name="PopupContent" sql-type="nvarchar(max)" not-null="false" />
+    </property>
+    <property name="MinScale" type="Int32">
+      <column name="MinScale" sql-type="int" />
+    </property>
+    <property name="MaxScale" type="Int32">
+      <column name="MaxScale" sql-type="int"  />
+    </property>
+    <property name="RelationshipsJson" type="StringClob">
+      <column name="RelationshipsJson" sql-type="nvarchar(max)" not-null="false" />
+    </property>
+    <bag name="Attachment">
+      <key column="LayerId" />
+      <one-to-many class="Attachment" />
+    </bag>
+    <bag name="Field">
+      <key column="LayerId" />
+      <one-to-many class="Field" />
+    </bag>
+  </class>
+</hibernate-mapping>

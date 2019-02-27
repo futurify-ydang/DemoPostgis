@@ -7,9 +7,26 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="GDAL" Version="2.3.3" />
+    <PackageReference Include="Gdal.Core" Version="1.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.2" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.9.0" />
     <PackageReference Include="MSTest.TestAdapter" Version="1.3.2" />
     <PackageReference Include="MSTest.TestFramework" Version="1.3.2" />
+    <PackageReference Include="NetTopologySuite" Version="1.15.1" />
+    <PackageReference Include="NHibernate" Version="5.1.4" />
+    <PackageReference Include="NHibernate.Spatial" Version="5.1.1" />
+    <PackageReference Include="NHibernate.Spatial.PostGis" Version="5.1.1" />
+    <PackageReference Include="Npgsql" Version="4.0.4" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="2.2.0" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL.NetTopologySuite" Version="2.2.0" />
+    <PackageReference Include="Npgsql.NetTopologySuite" Version="4.0.4.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="MetaDataConfigFiles\*">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

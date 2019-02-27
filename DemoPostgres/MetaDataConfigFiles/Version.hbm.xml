@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping assembly="" namespace="" xmlns="urn:nhibernate-mapping-2.2">
+  <class entity-name="Version" table="__Version" lazy="true" >
+    <cache usage="read-write"/>
+    <id name="VersionNumber" column="VersionNumber" type="String"></id>
+    <property name="CreatedAt" type="DateTime">
+      <column name="CreatedAt" sql-type="datetime" not-null="true" />
+    </property>
+  </class>
+</hibernate-mapping>

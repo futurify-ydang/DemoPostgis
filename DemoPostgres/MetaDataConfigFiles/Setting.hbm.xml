@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping assembly="" namespace="" xmlns="urn:nhibernate-mapping-2.2">
+  <class entity-name="Setting" table="__Setting" lazy="true" >
+    <cache usage="read-write"/>
+    <id name="Id" column="Id" type="Int32">
+      <generator class="identity" />
+    </id>
+    <property name="Key" type="String">
+      <column name="SettingKey" sql-type="nvarchar(max)" not-null="true" />
+    </property>
+    <property name="Value" type="StringClob">
+      <column name="SettingValue" sql-type="nvarchar(max)" />
+    </property>    
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping assembly="" namespace="" xmlns="urn:nhibernate-mapping-2.2">
+  <class entity-name="Tile" table="__Tile" lazy="true" >
+    <cache usage="read-write"/>
+    <id name="TileKey" column="TileKey" type="String"></id>
+    <property name="Service" type="String">
+      <column name="Service" sql-type="nvarchar(max)" not-null="false" />
+    </property>
+    <property name="Level" type="String">
+      <column name="Level" sql-type="nvarchar(max)" not-null="false" />
+    </property>
+    <property name="Size" type="Single">
+      <column name="Size" sql-type="real" not-null="false" />
+    </property>
+  </class>
+</hibernate-mapping>
